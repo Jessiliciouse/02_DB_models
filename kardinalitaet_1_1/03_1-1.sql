@@ -21,7 +21,6 @@ INSERT INTO design.cats (id, cat_name,fur_color) VALUES
 (DEFAULT, "Pettimo", "orange"),
 (DEFAULT, "Shadow", "black")
 ;
- 
 
 -- Inhalte: MT
 SELECT*FROM design.cats;
@@ -51,7 +50,11 @@ ALTER TABLE design.servants
 DESCRIBE design.servants;
 
 -- Inserts: DT
-
+INSERT INTO design.servants (id, servant_name, yrs_served, cats_id) VALUES 
+(DEFAULT, "Michelle", 5, 1),
+(DEFAULT, "Kelly", 2, 2),
+(DEFAULT, "Beyoncé", 10, 3)
+;
 
 -- Inhalte: DT
 SELECT*FROM design.servants;

@@ -1,3 +1,4 @@
+\! cls
 -- Vorbereitungen
 DROP TABLE IF EXISTS design.servants;
 DROP TABLE IF EXISTS design.cats; 
@@ -16,10 +17,12 @@ CREATE TABLE IF NOT EXISTS design.cats
 DESCRIBE design.cats;
 
 -- Inserts: MT 
-INSERT INTO design.cats (id, cat_name,fur_color) VALUES 
+INSERT INTO design.cats (id, cat_name,fur_colour) VALUES 
 (DEFAULT, "Moon", "white"),
 (DEFAULT, "Pettimo", "orange"),
-(DEFAULT, "Shadow", "black")
+(DEFAULT, "Shadow", "black"),
+(DEFAULT, "Oldie", "grey"),
+(DEFAULT, "Tiger", "striped")
 ;
 
 -- Inhalte: MT
@@ -27,11 +30,11 @@ SELECT*FROM design.cats;
 
 
 -- Detailtabelle: Verbindung zur MT über Fremdschlüssel
-CREATE TABLE design.servants
+CREATE TABLE IF NOT EXISTS design.servants
 (
-  id         VARCHAR(45) NOT NULL AUTO_INCREMENT COMMENT 'Index',
+  id         INT         NOT NULL AUTO_INCREMENT COMMENT 'Index',
   cats_id    INT         NOT NULL COMMENT 'FK',
-  serv_name  VARCHAR     NOT NULL COMMENT 'Name der Diener',
+  servant_name  VARCHAR(45)    NOT NULL COMMENT 'Name der Diener',
   yrs_served TINYINT     NOT NULL COMMENT 'Dienstzeit',
   PRIMARY KEY (id)
 );
@@ -53,7 +56,9 @@ DESCRIBE design.servants;
 INSERT INTO design.servants (id, servant_name, yrs_served, cats_id) VALUES 
 (DEFAULT, "Michelle", 5, 1),
 (DEFAULT, "Kelly", 2, 2),
-(DEFAULT, "Beyoncé", 10, 3)
+(DEFAULT, "Beyonce", 10, 3),
+(DEFAULT, "SZA", 3, 4),
+(DEFAULT, "Billie", 7, 5)
 ;
 
 -- Inhalte: DT

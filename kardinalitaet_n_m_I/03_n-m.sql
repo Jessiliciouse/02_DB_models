@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS design.purchases;
 CREATE TABLE IF NOT EXISTS design.servants
 (
   id           INT     NOT NULL AUTO_INCREMENT COMMENT 'PK',
-  servant_name VARCHAR(45) NOT NULL,
+  servant_name VARCHAR(45) NOT NULL UNIQUE,
   yrs_served   TINYINT NOT NULL,
   PRIMARY KEY (id)
 );
@@ -26,7 +26,12 @@ DESCRIBE design.servants;
 INSERT INTO design.servants (id,servant_name,yrs_served) VALUES
 (DEFAULT,"Mikasa Arckerman",5),
 (DEFAULT,"Eren Yeager",5),
-(DEFAULT,"Armin Arlet",5)
+(DEFAULT,"Armin Arlet",5),
+(DEFAULT, "Michelle", 3),
+(DEFAULT, "Kelly", 2),
+(DEFAULT, "Beyonce", 10),
+(DEFAULT, "SZA", 3),
+(DEFAULT, "Billie", 7)
 ;
 -- Servants: Inhalte 
 SELECT*FROM design.servants;
